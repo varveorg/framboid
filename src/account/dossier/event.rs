@@ -2,12 +2,12 @@ use std::collections::HashSet;
 
 use time::Timestamp;
 
-use crate::descriptors::{instruments::Instrument, mediums::Medium};
-
 pub struct Event {
     kind: EventKind,
-    instruments: HashSet<Instrument>,
-    mediums: HashSet<Medium>,
+    // Decide type soon
+    instruments: HashSet<()>,
+    // Decide type soon
+    mediums: HashSet<()>,
     from: Timestamp,
     to: Timestamp
 }
