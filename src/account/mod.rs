@@ -7,16 +7,18 @@ use time::Timestamp;
 
 use crate::account::{dossier::Dossier, profile::Profile};
 
+/// A person's complete, accumulating record.
 pub struct Varve {
     dossiers: IndexMap<Hash, Dossier>,
     profile: Profile,
     from: Timestamp
-    // Think about adding a `to` field, will a varve ever be "completed"?
+    // `to` field doesn't exist because a `Varve` never completes.
 }
 
 impl Varve {
-    pub fn new() -> Varve {
-        Varve {
+    /// Creates a `Varve` originating at the current time.
+    pub fn new() -> Self {
+        Self {
             dossiers: IndexMap::new(),
             profile: Profile::new(),
             from: Timestamp::now()
