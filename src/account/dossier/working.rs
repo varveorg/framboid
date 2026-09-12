@@ -4,6 +4,7 @@ use time::Timestamp;
 
 use crate::account::dossier::{Dossier, event::Event};
 
+/// A `Dossier` that can be created and modified before completion.
 pub struct WorkingDossier {
     events: IndexMap<Hash, Event>,
     from: Timestamp
@@ -17,6 +18,7 @@ impl WorkingDossier {
         }
     }
 
+    /// Completes this `WorkingDossier` by setting its end time to the current time.
     pub fn complete(self) -> Dossier {
         Dossier {
             events: self.events,
