@@ -29,6 +29,7 @@ impl Target {
         Ok(Target(TargetKind::Directory(path)))
     }
 
+    /// Validates endpoint and converts into whatever format necessary.
     pub fn endpoint(endpoint: Endpoint) -> Self {
         Target(TargetKind::Endpoint(endpoint))
     }

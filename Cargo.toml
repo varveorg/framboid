@@ -4,8 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+bitcode = { version = "0.6.9", features = ["serde"] }
 blake3 = "1.8.7"
-indexmap = "2.14.2"
+indexmap = { version = "2.14.2", features = ["serde"] }
 interprocess = "2.4.4"
-time = "0.3.55"
+serde = { version = "1.0.229", features = ["derive"] }
+time = { version = "0.3.55", features = ["serde"] }
 url = "2.5.8"
