@@ -1,5 +1,7 @@
 pub mod value;
 
+use std::io::Result;
+
 use time::Timestamp;
 
 use crate::{addressing::value::Value, target::Target};
@@ -20,7 +22,7 @@ impl Action {
         time: Timestamp,
         body: Value,
         target: Target
-    ) {
-        
+    ) -> Result<()> {
+        target.write(Action { name, source, time, body })
     }
 }

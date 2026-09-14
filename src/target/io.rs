@@ -1,6 +1,6 @@
 use std::{fs::{File, OpenOptions}, io::Result, path::PathBuf};
 
-use crate::target::{Target, TargetKind};
+use crate::{addressing::Action, target::{Target, TargetKind}};
 
 impl Target {
     pub fn read(&self) -> Result<()> {
@@ -23,7 +23,7 @@ impl Target {
         Ok(())
     }
 
-    pub fn write(&self) -> Result<()> {
+    pub fn write(&self, action: Action) -> Result<()> {
         match &self.0 {
             TargetKind::Directory(dir) => {
                 lockfile(dir)?.lock_shared()?;
