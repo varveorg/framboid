@@ -1,5 +1,6 @@
 pub mod endpoint;
 pub mod error;
+pub mod io;
 
 use std::path::PathBuf;
 
@@ -52,13 +53,5 @@ impl Target {
         let name = name.to_ns_name::<GenericNamespaced>().unwrap();
         
         Ok(Target(TargetKind::Socket(name)))
-    }
-
-    pub fn read() {
-        
-    }
-
-    pub fn write() {
-        
     }
 }
