@@ -1,9 +1,8 @@
-use std::{fs::{File, OpenOptions}, io::{Error, ErrorKind, Read, Result, Write}, path::PathBuf};
+use std::{fs::{File, OpenOptions}, io::{Read, Result, Write}, path::PathBuf};
 
-use bitcode::serialize;
 use interprocess::local_socket::{ConnectOptions, Name, Stream};
 
-use crate::{addressing::Action, target::{Target, TargetKind}};
+use crate::target::{Target, TargetKind};
 
 impl Target {
     pub fn read(&self, buffer: &mut Vec<u8>) -> Result<()> {
