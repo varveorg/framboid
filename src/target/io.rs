@@ -6,6 +6,7 @@ use interprocess::local_socket::{ConnectOptions, Name, Stream};
 use crate::target::{Target, TargetKind};
 
 impl Target {
+    /// A reading abstraction over `TargetKind` that fills a buffer.
     pub fn read(&self, buffer: &mut Vec<u8>) -> Result<()> {
         match &self.0 {
             TargetKind::Directory(dir) => {
@@ -44,6 +45,7 @@ impl Target {
         Ok(())
     }
 
+    /// A writing abstraction over `TargetKind` that consumes a buffer.
     pub fn write(&self, buffer: Vec<u8>) -> Result<()> {
         match &self.0 {
             TargetKind::Directory(dir) => {
