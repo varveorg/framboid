@@ -30,7 +30,7 @@ impl Target {
         Ok(())
     }
 
-    pub fn write(&self, actions: &[Action]) -> Result<()> {
+    pub fn write(&self, buffer: Vec<u8>) -> Result<()> {
         match &self.0 {
             TargetKind::Directory(dir) => {
                 lockfile(dir)?.lock_shared()?;
@@ -44,12 +44,12 @@ impl Target {
                     .open(file)?;
                 file.lock()?;
 
-                write(&mut file, actions)?;
+                file.write_all(&buffer)?;
             }
             TargetKind::Socket(name) => {
                 let mut stream = connect(name)?;
 
-                write(&mut stream, actions)?;
+                stream.write_all(&buffer)?;
             }
         }
 
@@ -67,15 +67,4 @@ fn connect(name: &Name<'static>) -> Result<Stream> {
     ConnectOptions::new()
         .name(name.clone())
         .connect_sync()
-}
-
-fn write<W: Write>(writer: &mut W, actions: &[Action]) -> Result<()> {
-    for action in actions {
-        let action = serialize(action).map_err(|err| Error::new(ErrorKind::InvalidData, err))?;
-
-        writer.write_all(&action)?;
-        writer.write_all(&(action.len() as u64).to_be_bytes())?;
-    }
-
-    Ok(())
 }

@@ -1,11 +1,9 @@
-pub mod value;
+pub mod deposit;
+pub mod excavate;
 
-use std::io::Result;
-
+use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 use time::Timestamp;
-
-use crate::{addressing::value::Value, target::Target};
 
 /// A single, discrete action.
 #[derive(Serialize, Deserialize)]
@@ -14,6 +12,17 @@ pub struct Action {
     source: String,
     time: Timestamp,
     body: Value
+}
+
+/// A set of types for polymorphism.
+#[derive(Serialize, Deserialize)]
+pub enum Value {
+    Bool(bool),
+    Handle(String),
+    Integer(i64),
+    List(Vec<Value>),
+    Map(IndexMap<String, Value>),
+    Text(String)
 }
 
 impl Action {
@@ -25,10 +34,5 @@ impl Action {
             time,
             body
         }
-    }
-    
-    /// Writes the actions to the desired `Target`.
-    pub fn deposit(actions: &[Action], target: Target) -> Result<()> {
-        target.write(actions)
     }
 }
