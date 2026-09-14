@@ -2,7 +2,7 @@ pub mod value;
 
 use time::Timestamp;
 
-use crate::addressing::value::Value;
+use crate::{addressing::value::Value, target::Target};
 
 /// A single, discrete action.
 pub struct Action {
@@ -13,11 +13,13 @@ pub struct Action {
 }
 
 impl Action {
+    /// Creates an `Action` and serializes it, sending it to the desired `Target`.
     pub fn deposit(
         name: String,
         source: String,
         time: Timestamp,
-        body: Value
+        body: Value,
+        target: Target
     ) {
         
     }
