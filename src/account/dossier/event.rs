@@ -14,13 +14,16 @@ pub struct Event {
     to: Timestamp
 }
 
-pub struct EventError;
+pub enum EventError {
+    EmptyActions,
+    IncorrectHash
+}
 
 impl Event {
     /// Creates an `Event` by sorting by `Timestamp`, hashing every `Action` to create its key, and then inserts them into the map.
     pub fn new(mut actions: Vec<Action>) -> Result<Self, EventError> {
         if actions.is_empty() {
-            return Err(EventError);
+            return Err(EventError::EmptyActions);
         }
 
         actions.sort_by_key(|action| action.time);
@@ -41,5 +44,20 @@ impl Event {
                 to
             }
         )
+    }
+
+    /// Adds an `Action` to the map while preserving insertion order.
+    pub fn add(&mut self, action: Action) {
+        self.actions.insert_sorted_by_key(hash(&serialize(&action).unwrap()), action, |_, action| action.time);
+    }
+
+    /// Removes an `Action` while preserving insertion order.
+    pub fn remove(&mut self, hash: Hash) -> Result<Action, EventError> {
+        if let Some(action) = self.actions.shift_remove(&hash) {
+            Ok(action)
+        }
+        else {
+            Err(EventError::IncorrectHash)
+        }
     }
 }
