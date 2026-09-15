@@ -5,6 +5,7 @@ use bitcode::deserialize;
 use crate::{addressing::Action, target::Target};
 
 impl Action {
+    /// Reads the actions from the desired `Target`.
     pub fn excavate(target: Target) -> Result<Vec<Action>> {
         let mut buffer: Vec<u8> = Vec::new();
         target.read(&mut buffer)?;
