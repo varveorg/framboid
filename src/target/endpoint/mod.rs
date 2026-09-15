@@ -7,8 +7,8 @@ use url::Url;
 use crate::target::endpoint::error::EndpointError;
 
 /// A `Target` that transports over the internet.
-pub struct Endpoint(EndpointKind);
-enum EndpointKind {
+pub struct Endpoint(pub(super) EndpointKind);
+pub(super) enum EndpointKind {
     Http(Url),
     Tcp(String),
     Udp(String)
