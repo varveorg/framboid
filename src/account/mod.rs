@@ -24,4 +24,20 @@ impl Varve {
             from: Timestamp::now()
         }
     }
+
+    pub fn dossiers(&self) -> &IndexMap<Hash, Dossier> {
+        &self.dossiers
+    }
+
+    pub fn dossiers_mut(&mut self) -> &mut IndexMap<Hash, Dossier> {
+        &mut self.dossiers
+    }
+
+    pub fn profile(&self) -> &Profile {
+        &self.profile
+    }
+
+    pub fn profile_mut(&mut self) -> &mut Profile {
+        &mut self.profile
+    }
 }
