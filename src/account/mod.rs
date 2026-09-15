@@ -19,10 +19,10 @@ pub struct Varve {
 
 impl Varve {
     /// Creates a `Varve` originating at the current time.
-    pub fn new() -> Self {
+    pub fn new(profile: Profile) -> Self {
         Self {
             dossiers: IndexMap::new(),
-            profile: Profile::new(),
+            profile,
             from: Timestamp::now()
         }
     }

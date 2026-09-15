@@ -2,6 +2,7 @@ pub mod authorization;
 pub mod compensation;
 pub mod experience;
 pub mod identity;
+pub mod period;
 
 use crate::account::profile::{authorization::Authorization, compensation::Compensation, experience::{credentials::Credential, engagement::Engagement}, identity::Identity};
 
@@ -14,13 +15,19 @@ pub struct Profile {
 }
 
 impl Profile {
-    pub fn new() -> Self {
-        Profile {
-            authorization: Authorization::new(),
-            compensation: Compensation::new(),
-            credentials: Vec::new(),
-            engagements: Vec::new(),
-            identity: Identity::new()
+    pub fn new (
+        authorization: Authorization,
+        compensation: Compensation,
+        credentials: Vec<Credential>,
+        engagements: Vec<Engagement>,
+        identity: Identity
+    ) -> Self {
+        Self {
+            authorization,
+            compensation,
+            credentials,
+            engagements,
+            identity
         }
     }
 }
