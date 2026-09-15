@@ -1,7 +1,8 @@
 pub mod dossier;
 pub mod profile;
 
-use blake3::Hash;
+use bitcode::serialize;
+use blake3::{Hash, hash};
 use indexmap::IndexMap;
 use time::Timestamp;
 
@@ -25,19 +26,9 @@ impl Varve {
         }
     }
 
-    pub fn dossiers(&self) -> &IndexMap<Hash, Dossier> {
-        &self.dossiers
-    }
-
-    pub fn dossiers_mut(&mut self) -> &mut IndexMap<Hash, Dossier> {
-        &mut self.dossiers
-    }
-
-    pub fn profile(&self) -> &Profile {
-        &self.profile
-    }
-
-    pub fn profile_mut(&mut self) -> &mut Profile {
-        &mut self.profile
+    pub fn add_dossiers(&mut self, dossiers: Vec<Dossier>) {
+        for dossier in dossiers {
+            self.dossiers.insert_sorted_by_key(hash(&serialize(&dossier).unwrap()), dossier, |_, dossier| dossier.from);
+        }
     }
 }

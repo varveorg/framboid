@@ -1,4 +1,5 @@
-use blake3::Hash;
+use bitcode::serialize;
+use blake3::{Hash, hash};
 use indexmap::IndexMap;
 use time::Timestamp;
 
@@ -11,10 +12,17 @@ pub struct WorkingDossier {
 }
 
 impl WorkingDossier {
+    /// Constructs a `WorkingDossier`.
     pub fn new() -> WorkingDossier {
         WorkingDossier {
             events: IndexMap::new(),
             from: Timestamp::now(),
+        }
+    }
+
+    pub fn add_events(&mut self, events: Vec<Event>) {
+        for event in events {
+            self.events.insert_sorted_by_key(hash(&serialize(&event).unwrap()), event, |_, event| event.from);
         }
     }
 

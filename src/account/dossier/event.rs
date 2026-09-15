@@ -1,14 +1,16 @@
 use bitcode::serialize;
 use blake3::{Hash, hash};
 use indexmap::IndexMap;
+use serde::Serialize;
 use time::Timestamp;
 
 use crate::addressing::Action;
 
 /// A slice of time deemed meaningful.
+#[derive(Serialize)]
 pub struct Event {
     actions: IndexMap<Hash, Action>,
-    from: Timestamp,
+    pub(super) from: Timestamp,
     to: Timestamp
 }
 
