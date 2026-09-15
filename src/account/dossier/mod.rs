@@ -11,7 +11,7 @@ use crate::account::dossier::event::Event;
 /// A bounded span of events with a coherent identity.
 #[derive(Serialize)]
 pub struct Dossier {
-    events: IndexMap<Hash, Event>,
+    pub(super) events: IndexMap<Hash, Event>,
     pub(super) from: Timestamp,
     to: Timestamp
 }
