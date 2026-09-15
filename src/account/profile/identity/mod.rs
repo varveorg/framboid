@@ -1,13 +1,32 @@
+pub mod address;
 pub mod name;
 
-use crate::account::profile::identity::name::Name;
+use time::Date;
+
+use crate::account::profile::identity::{address::Address, name::Name};
 
 pub struct Identity {
-    name: Name
+    address: Address,
+    birth: Date,
+    emails: Vec<String>,
+    names: Vec<Name>,
+    phones: Vec<String>,
 }
 
 impl Identity {
-    pub fn new(name: Name) -> Self {
-        Self { name }
+    pub fn new(
+        address: Address,
+        birth: Date,
+        emails: Vec<String>,
+        names: Vec<Name>,
+        phones: Vec<String>
+    ) -> Self {
+        Self {
+            address,
+            birth,
+            emails,
+            names,
+            phones
+        }
     }
 }
