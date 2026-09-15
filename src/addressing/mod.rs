@@ -10,7 +10,7 @@ use time::Timestamp;
 pub struct Action {
     name: String,
     source: String,
-    time: Timestamp,
+    pub(super) time: Timestamp,
     body: Value
 }
 
