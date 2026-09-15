@@ -1,10 +1,9 @@
 pub mod authorization;
 pub mod compensation;
-pub mod credentials;
-pub mod engagements;
+pub mod experience;
 pub mod identity;
 
-use crate::account::profile::{authorization::Authorization, compensation::Compensation, credentials::Credential, engagements::Engagement, identity::Identity};
+use crate::account::profile::{authorization::Authorization, compensation::Compensation, experience::{credentials::Credential, engagements::Engagement}, identity::Identity};
 
 pub struct Profile {
     authorization: Authorization,
