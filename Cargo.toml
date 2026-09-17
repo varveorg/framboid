@@ -2,7 +2,9 @@
 name = "framboid"
 version = "0.1.0"
 edition = "2024"
+description = "Rust implementation of the Varve standard"
 license = "AGPL-3.0-only"
+repository = "https://github.com/ZA1815/framboid"
 
 [dependencies]
 bitcode = { version = "0.6.9", features = ["serde"] }
