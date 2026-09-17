@@ -11,7 +11,7 @@ impl WorkingEvent {
         }
     }
 
-    /// Removes from the `WorkingEvent` with the `Hash` for the supplied `Action`.
+    /// Removes the `Action` that is associated with the supplied `Hash`.
     pub fn remove(&mut self, hash: Hash) -> Result<Action, VarveError> {
         if let Some(action) = self.0.shift_remove(&hash) {
             Ok(action)

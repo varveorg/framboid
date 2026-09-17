@@ -5,6 +5,7 @@ use time::Date;
 
 use crate::account::profile::identity::{address::Address, name::Name};
 
+/// A person's identifying information.
 pub struct Identity {
     address: Address,
     birth: Date,

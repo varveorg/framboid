@@ -12,7 +12,7 @@ impl WorkingDossier {
         }
     }
 
-    /// Removes from the `WorkingDossier` with the `Hash` for the supplied `Event`.
+    /// Removes the `Event` that is associated with the supplied `Hash`.
     pub fn remove(&mut self, hash: Hash) -> Result<Event, VarveError> {
         if let Some(event) = self.0.shift_remove(&hash) {
             Ok(event)

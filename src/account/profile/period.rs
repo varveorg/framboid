@@ -1,5 +1,6 @@
 use time::Date;
 
+/// A span from a start `Date` to an optional end `Date`.
 #[derive(Clone, Copy)]
 pub struct Period {
     start: Date,
@@ -7,7 +8,7 @@ pub struct Period {
 }
 
 impl Period {
-    /// Creates a `Date` using an optional terminating `Date`.
+    /// Creates a `Period` using an optional terminating `Date`.
     pub fn new(start: Date, end: Option<Date>) -> Self {
         Self {
             start,

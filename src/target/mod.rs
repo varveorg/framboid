@@ -18,7 +18,7 @@ enum TargetKind {
 }
 
 impl Target {
-    /// Validates directory and converts into PathBuf (if necessary).
+    /// Validates directory and converts into `PathBuf` (if necessary).
     pub fn directory(path: impl Into<PathBuf>) -> Result<Self, TargetError> {
         let path = path.into();
 
@@ -29,12 +29,12 @@ impl Target {
         Ok(Target(TargetKind::Directory(path)))
     }
 
-    /// Validates endpoint and converts into whatever format necessary.
+    /// Converts an `Endpoint` into a `Target`.
     pub fn endpoint(endpoint: Endpoint) -> Self {
         Target(TargetKind::Endpoint(endpoint))
     }
 
-    /// Validates file and converts into PathBuf (if necessary).
+    /// Validates file and converts into `PathBuf` (if necessary).
     pub fn file(path: impl Into<PathBuf>) -> Result<Self, TargetError> {
         let path = path.into();
 

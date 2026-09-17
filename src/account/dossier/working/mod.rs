@@ -10,7 +10,7 @@ use crate::account::dossier::event::Event;
 pub struct WorkingDossier (IndexMap<Hash, Event>);
 
 impl WorkingDossier {
-    /// Constructs a `WorkingDossier` with supplied events.
+    /// Creates a `WorkingDossier` with supplied events.
     pub fn new(mut events: Vec<Event>) -> Self {
         events.sort_by_key(|event| event.from);
         
@@ -22,6 +22,7 @@ impl WorkingDossier {
         Self (map)
     }
 
+    /// Returns a reference to the contained events.
     pub fn events(&self) -> &IndexMap<Hash, Event> {
         &self.0
     }

@@ -27,14 +27,17 @@ impl Varve {
         }
     }
 
+    /// Returns a reference to the contained dossiers.
     pub fn dossiers(&self) -> &IndexMap<Hash, Dossier> {
         &self.dossiers
     }
 
+    /// Returns a reference to the contained `Profile`.
     pub fn profile(&self) -> &Profile {
         &self.profile
     }
 
+    /// Returns a copy of the contained origin `Timestamp`.
     pub fn from(&self) -> Timestamp {
         self.from
     }

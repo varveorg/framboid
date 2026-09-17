@@ -1,5 +1,6 @@
 use crate::account::profile::location::Location;
 
+/// A person's postal address.
 pub struct Address {
     lines: Vec<String>,
     location: Location,

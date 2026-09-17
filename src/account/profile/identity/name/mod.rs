@@ -3,6 +3,7 @@ pub mod usage;
 
 use crate::account::profile::identity::name::{identifiers::Identifiers, usage::Usage};
 
+/// A person's name in native and optional latin `Identifiers`.
 pub struct Name {
     latin: Option<Identifiers>,
     native: Identifiers,
@@ -33,7 +34,7 @@ impl Name {
         &self.native
     }
 
-    /// Returns a reference to the contained `Usage`.
+    /// Returns a copy of the contained `Usage`.
     pub fn usage(&self) -> Usage {
         self.usage
     }

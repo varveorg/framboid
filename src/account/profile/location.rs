@@ -1,3 +1,4 @@
+/// A place with a city, country, county, and state.
 pub struct Location {
     city: String,
     country: String,

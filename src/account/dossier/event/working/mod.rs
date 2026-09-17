@@ -10,7 +10,7 @@ use crate::addressing::Action;
 pub struct WorkingEvent (IndexMap<Hash, Action>);
 
 impl WorkingEvent {
-    /// Constructs a `WorkingEvent` with supplied actions.
+    /// Creates a `WorkingEvent` with supplied actions.
     pub fn new(mut actions: Vec<Action>) -> Self {
         actions.sort_by_key(|action| action.time);
         
@@ -22,6 +22,7 @@ impl WorkingEvent {
         Self (map)
     }
 
+    /// Returns a reference to the contained actions.
     pub fn actions(&self) -> &IndexMap<Hash, Action> {
         &self.0
     }
