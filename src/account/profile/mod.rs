@@ -2,6 +2,7 @@ pub mod authorization;
 pub mod compensation;
 pub mod experience;
 pub mod identity;
+pub mod location;
 pub mod period;
 
 use crate::account::profile::{authorization::Authorization, compensation::Compensation, experience::{credentials::Credential, engagement::Engagement}, identity::Identity};

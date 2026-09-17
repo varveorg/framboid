@@ -1,7 +1,7 @@
 pub mod arrangement;
 pub mod employment;
 
-use crate::account::profile::{experience::{engagement::{arrangement::Arrangement, employment::Employment}, location::Location}, period::Period};
+use crate::account::profile::{experience::engagement::{arrangement::Arrangement, employment::Employment}, location::Location, period::Period};
 
 pub struct Engagement {
     arrangement: Arrangement,
@@ -13,7 +13,7 @@ pub struct Engagement {
 }
 
 impl Engagement {
-    pub fn new (
+    pub fn new(
         arrangement: Arrangement,
         employer: String,
         employment: Employment,

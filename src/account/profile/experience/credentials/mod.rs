@@ -1,8 +1,8 @@
 pub mod status;
 
-use crate::account::profile::experience::{credentials::status::Status, location::Location};
+use crate::account::profile::{experience::credentials::status::Status, location::Location};
 
-pub struct Credential (CredentialKind);
+pub struct Credential(CredentialKind);
 enum CredentialKind {
     Education {
         degree: String,
@@ -14,14 +14,14 @@ enum CredentialKind {
 }
 
 impl Credential {
-    pub fn education (
+    pub fn education(
         degree: String,
         discipline: String,
         location: Location,
         school: String,
         status: Status
     ) -> Self {
-        Self (
+        Self(
             CredentialKind::Education {
                 degree,
                 discipline,

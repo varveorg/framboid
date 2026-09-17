@@ -1,4 +1,4 @@
-pub struct Status (StatusKind);
+pub struct Status(StatusKind);
 enum StatusKind {
     Completed,
     Enrolled,

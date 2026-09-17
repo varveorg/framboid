@@ -1,4 +1,4 @@
-pub struct Employment (EmploymentKind);
+pub struct Employment(EmploymentKind);
 enum EmploymentKind {
     Apprenticeship,
     Contract,
@@ -8,23 +8,23 @@ enum EmploymentKind {
 }
 
 impl Employment {
-    pub fn apprenticeship () -> Self {
-        Self (EmploymentKind::Apprenticeship)
+    pub fn apprenticeship() -> Self {
+        Self(EmploymentKind::Apprenticeship)
     }
 
-    pub fn contract () -> Self {
-        Self (EmploymentKind::Contract)
+    pub fn contract() -> Self {
+        Self(EmploymentKind::Contract)
     }
 
-    pub fn internship () -> Self {
-        Self (EmploymentKind::Internship)
+    pub fn internship() -> Self {
+        Self(EmploymentKind::Internship)
     }
 
-    pub fn full_time () -> Self {
-        Self (EmploymentKind::FullTime)
+    pub fn full_time() -> Self {
+        Self(EmploymentKind::FullTime)
     }
 
-    pub fn part_time () -> Self {
-        Self (EmploymentKind::PartTime)
+    pub fn part_time() -> Self {
+        Self(EmploymentKind::PartTime)
     }
 }
