@@ -7,6 +7,7 @@ pub mod period;
 
 use crate::account::profile::{authorization::Authorization, compensation::Compensation, experience::{credentials::Credential, engagement::Engagement}, identity::Identity};
 
+/// A set of information a person supplies about themselves.
 pub struct Profile {
     authorization: Authorization,
     compensation: Compensation,
@@ -16,6 +17,7 @@ pub struct Profile {
 }
 
 impl Profile {
+    /// Creates a `Profile`.
     pub fn new (
         authorization: Authorization,
         compensation: Compensation,
@@ -32,22 +34,27 @@ impl Profile {
         }
     }
 
+    /// Returns a reference to the contained `Authorization`.
     pub fn authorization(&self) -> &Authorization {
         &self.authorization
     }
 
+    /// Returns a reference to the contained `Compensation`.
     pub fn compensation(&self) -> &Compensation {
         &self.compensation
     }
 
+    /// Returns a reference to the contained credentials.
     pub fn credentials(&self) -> &[Credential] {
         &self.credentials
     }
 
+    /// Returns a reference to the contained engagements.
     pub fn engagements(&self) -> &[Engagement] {
         &self.engagements
     }
 
+    /// Returns a reference to the contained `Identity`.
     pub fn identity(&self) -> &Identity {
         &self.identity
     }
