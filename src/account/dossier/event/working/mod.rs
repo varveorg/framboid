@@ -7,7 +7,7 @@ use indexmap::IndexMap;
 use crate::addressing::Action;
 
 /// An `Event` that can be created and modified before completion.
-struct WorkingEvent (IndexMap<Hash, Action>);
+pub struct WorkingEvent (IndexMap<Hash, Action>);
 
 impl WorkingEvent {
     /// Constructs a `WorkingEvent` with supplied actions.
