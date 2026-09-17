@@ -11,7 +11,7 @@ impl Varve {
         }
     }
 
-    /// Removes from the `Varve` with the `Hash` for the supplied `Dossier`.
+    /// Removes the `Dossier` that is associated with the supplied `Hash`.
     pub fn remove(&mut self, hash: Hash) -> Result<Dossier, VarveError> {
         if let Some(dossier) = self.dossiers.shift_remove(&hash) {
             Ok(dossier)
