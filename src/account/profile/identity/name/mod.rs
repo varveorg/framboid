@@ -10,6 +10,7 @@ pub struct Name {
 }
 
 impl Name {
+    /// Creates a `Name`.
     pub fn new(
         latin: Option<Identifiers>,
         native: Identifiers,
@@ -22,14 +23,17 @@ impl Name {
         }
     }
 
+    /// Returns a copy of the contained `Option` with a possible reference to the latin `Identifiers`.
     pub fn latin(&self) -> Option<&Identifiers> {
         self.latin.as_ref()
     }
 
+    /// Returns a reference to the contained native `Identifiers`.
     pub fn native(&self) -> &Identifiers {
         &self.native
     }
 
+    /// Returns a reference to the contained `Usage`.
     pub fn usage(&self) -> Usage {
         self.usage
     }

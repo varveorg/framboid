@@ -14,6 +14,7 @@ pub struct Identity {
 }
 
 impl Identity {
+    /// Creates an `Identity`.
     pub fn new(
         address: Address,
         birth: Date,
@@ -30,22 +31,27 @@ impl Identity {
         }
     }
 
+    /// Returns a reference to the contained `Address`.
     pub fn address(&self) -> &Address {
         &self.address
     }
 
+    /// Returns a copy of the contained birth `Date`.
     pub fn birth(&self) -> Date {
         self.birth
     }
 
+    /// Returns a reference to the contained emails.
     pub fn emails(&self) -> &[String] {
         &self.emails
     }
 
+    /// Returns a reference to the contained names.
     pub fn names(&self) -> &[Name] {
         &self.names
     }
 
+    /// Returns a reference to the contained phone numbers.
     pub fn phones(&self) -> &[String] {
         &self.phones
     }
