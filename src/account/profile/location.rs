@@ -19,4 +19,20 @@ impl Location {
             state
         }
     }
+
+    pub fn city(&self) -> &str {
+        &self.city
+    }
+
+    pub fn country(&self) -> &str {
+        &self.country
+    }
+
+    pub fn county(&self) -> &str {
+        &self.county
+    }
+
+    pub fn state(&self) -> &str {
+        &self.state
+    }
 }

@@ -30,4 +30,28 @@ impl Engagement {
             title
         }
     }
+
+    pub fn arrangement(&self) -> Arrangement {
+        self.arrangement
+    }
+
+    pub fn employer(&self) -> &str {
+        &self.employer
+    }
+
+    pub fn employment(&self) -> Employment {
+        self.employment
+    }
+
+    pub fn location(&self) -> Option<&Location> {
+        self.location.as_ref()
+    }
+
+    pub fn period(&self) -> Period {
+        self.period
+    }
+
+    pub fn title(&self) -> &str {
+        &self.title
+    }
 }

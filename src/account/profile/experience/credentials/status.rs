@@ -1,5 +1,8 @@
+#[derive(Clone, Copy)]
 pub struct Status(StatusKind);
-enum StatusKind {
+
+#[derive(Clone, Copy)]
+pub enum StatusKind {
     Completed,
     Enrolled,
     DroppedOut,
@@ -26,5 +29,9 @@ impl Status {
 
     pub fn withdrawn() -> Self {
         Self(StatusKind::Withdrawn)
+    }
+
+    pub fn kind(&self) -> StatusKind {
+        self.0
     }
 }

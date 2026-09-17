@@ -18,4 +18,16 @@ impl Address {
             postcode
         }
     }
+
+    pub fn lines(&self) -> &[String] {
+        &self.lines
+    }
+
+    pub fn location(&self) -> &Location {
+        &self.location
+    }
+
+    pub fn postcode(&self) -> &str {
+        &self.postcode
+    }
 }

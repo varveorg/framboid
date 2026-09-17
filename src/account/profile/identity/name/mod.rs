@@ -21,4 +21,16 @@ impl Name {
             usage
         }
     }
+
+    pub fn latin(&self) -> Option<&Identifiers> {
+        self.latin.as_ref()
+    }
+
+    pub fn native(&self) -> &Identifiers {
+        &self.native
+    }
+
+    pub fn usage(&self) -> Usage {
+        self.usage
+    }
 }

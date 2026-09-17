@@ -31,4 +31,24 @@ impl Profile {
             identity
         }
     }
+
+    pub fn authorization(&self) -> &Authorization {
+        &self.authorization
+    }
+
+    pub fn compensation(&self) -> &Compensation {
+        &self.compensation
+    }
+
+    pub fn credentials(&self) -> &[Credential] {
+        &self.credentials
+    }
+
+    pub fn engagements(&self) -> &[Engagement] {
+        &self.engagements
+    }
+
+    pub fn identity(&self) -> &Identity {
+        &self.identity
+    }
 }

@@ -3,7 +3,7 @@ pub mod status;
 use crate::account::profile::{experience::credentials::status::Status, location::Location};
 
 pub struct Credential(CredentialKind);
-enum CredentialKind {
+pub enum CredentialKind {
     Education {
         degree: String,
         discipline: String,
@@ -30,5 +30,9 @@ impl Credential {
                 status
             }
         )
+    }
+
+    pub fn kind(&self) -> &CredentialKind {
+        &self.0
     }
 }

@@ -1,5 +1,8 @@
+#[derive(Clone, Copy)]
 pub struct Employment(EmploymentKind);
-enum EmploymentKind {
+
+#[derive(Clone, Copy)]
+pub enum EmploymentKind {
     Apprenticeship,
     Contract,
     Internship,
@@ -26,5 +29,9 @@ impl Employment {
 
     pub fn part_time() -> Self {
         Self(EmploymentKind::PartTime)
+    }
+
+    pub fn kind(&self) -> EmploymentKind {
+        self.0
     }
 }

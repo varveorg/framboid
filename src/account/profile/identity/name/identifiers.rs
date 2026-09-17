@@ -10,4 +10,12 @@ impl Identifiers {
             secondary
         }
     }
+
+    pub fn primary(&self) -> &str {
+        &self.primary
+    }
+
+    pub fn secondary(&self) -> Option<&str> {
+        self.secondary.as_deref()
+    }
 }

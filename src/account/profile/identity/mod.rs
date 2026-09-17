@@ -29,4 +29,24 @@ impl Identity {
             phones
         }
     }
+
+    pub fn address(&self) -> &Address {
+        &self.address
+    }
+
+    pub fn birth(&self) -> Date {
+        self.birth
+    }
+
+    pub fn emails(&self) -> &[String] {
+        &self.emails
+    }
+
+    pub fn names(&self) -> &[Name] {
+        &self.names
+    }
+
+    pub fn phones(&self) -> &[String] {
+        &self.phones
+    }
 }

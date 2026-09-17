@@ -1,7 +1,10 @@
 use crate::account::profile::period::Period;
 
+#[derive(Clone, Copy)]
 pub struct Usage(UsageKind);
-enum UsageKind {
+
+#[derive(Clone, Copy)]
+pub enum UsageKind {
     Legal,
     Prior(Period),
     Used
@@ -18,5 +21,9 @@ impl Usage {
 
     pub fn used() -> Self {
         Self(UsageKind::Used)
+    }
+
+    pub fn kind(&self) -> UsageKind {
+        self.0
     }
 }
