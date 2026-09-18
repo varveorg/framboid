@@ -7,10 +7,11 @@ use blake3::Hash;
 use indexmap::IndexMap;
 use time::Timestamp;
 
-use crate::account::{dossier::Dossier, profile::Profile};
+use crate::{account::{dossier::Dossier, profile::Profile}, keys::account::AccountKey};
 
 /// A person's complete, accumulating record.
 pub struct Varve {
+    account: AccountKey,
     dossiers: IndexMap<Hash, Dossier>,
     profile: Profile,
     from: Timestamp
@@ -19,12 +20,21 @@ pub struct Varve {
 
 impl Varve {
     /// Creates a `Varve` originating at the current time.
-    pub fn new(profile: Profile) -> Self {
+    pub fn new(
+        account: AccountKey,
+        profile: Profile
+    ) -> Self {
         Self {
+            account,
             dossiers: IndexMap::new(),
             profile,
             from: Timestamp::now()
         }
+    }
+
+    /// Returns a reference to the contained `AccountKey`.
+    pub fn account(&self) -> &AccountKey {
+        &self.account
     }
 
     /// Returns a reference to the contained dossiers.

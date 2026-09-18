@@ -5,11 +5,13 @@ use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 use time::Timestamp;
 
+use crate::keys::source::SourceKey;
+
 /// A single, discrete action.
 #[derive(Serialize, Deserialize)]
 pub struct Action {
     name: String,
-    source: String,
+    source: SourceKey,
     pub(super) time: Timestamp,
     body: Value
 }
@@ -27,12 +29,37 @@ pub enum Value {
 
 impl Action {
     /// Creates an `Action`.
-    pub fn new(name: String, source: String, time: Timestamp, body: Value) -> Self {
+    pub fn new(
+        name: String,
+        source: SourceKey,
+        time: Timestamp,
+        body: Value
+    ) -> Self {
         Self {
             name,
             source,
             time,
             body
         }
+    }
+
+    /// Returns a reference to the contained name.
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    /// Returns a reference to the contained `SourceKey`.
+    pub fn source(&self) -> &SourceKey {
+        &self.source
+    }
+
+    /// Returns a copy of the contained `Timestamp`.
+    pub fn time(&self) -> Timestamp {
+        self.time
+    }
+
+    /// Returns a reference to the contained `Value`.
+    pub fn body(&self) -> &Value {
+        &self.body
     }
 }
