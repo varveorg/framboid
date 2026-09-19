@@ -3,16 +3,14 @@ use crate::keys::Key;
 /// An account identifier.
 pub struct AccountKey(String);
 
-impl Key for AccountKey {}
-
-impl AccountKey {
+impl Key for AccountKey {
     /// Creates an `AccountKey`.
-    pub fn new(key: String) -> Self {
+    fn new(key: String) -> Self {
         AccountKey(key)
     }
 
     /// Returns a reference to the contained key.
-    pub fn key(&self) -> &str {
+    fn key(&self) -> &str {
         &self.0
     }
 }

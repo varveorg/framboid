@@ -1,5 +1,9 @@
 pub mod account;
 pub mod source;
 
-/// A marker trait for identifiers.
-pub trait Key {}
+/// A trait for identifiers.
+pub trait Key {
+    fn new(key: String) -> Self;
+
+    fn key(&self) -> &str;
+}
