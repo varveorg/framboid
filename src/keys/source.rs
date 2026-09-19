@@ -1,8 +1,12 @@
 use serde::{Deserialize, Serialize};
 
+use crate::keys::Key;
+
 /// A source identifier.
 #[derive(Serialize, Deserialize)]
 pub struct SourceKey(String);
+
+impl Key for SourceKey {}
 
 impl SourceKey {
     /// Creates a `SourceKey`.

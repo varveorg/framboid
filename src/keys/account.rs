@@ -1,5 +1,9 @@
+use crate::keys::Key;
+
 /// An account identifier.
 pub struct AccountKey(String);
+
+impl Key for AccountKey {}
 
 impl AccountKey {
     /// Creates an `AccountKey`.
