@@ -13,17 +13,17 @@ pub struct Action {
     name: String,
     source: SourceKey,
     pub(super) time: Timestamp,
-    body: Value
+    body: Body
 }
 
 /// A set of types for polymorphism.
 #[derive(Serialize, Deserialize)]
-pub enum Value {
+pub enum Body {
     Bool(bool),
     Handle(String),
     Integer(i64),
-    List(Vec<Value>),
-    Map(IndexMap<String, Value>),
+    List(Vec<Body>),
+    Map(IndexMap<String, Body>),
     Text(String)
 }
 
@@ -33,7 +33,7 @@ impl Action {
         name: String,
         source: SourceKey,
         time: Timestamp,
-        body: Value
+        body: Body
     ) -> Self {
         Self {
             name,
@@ -58,8 +58,8 @@ impl Action {
         self.time
     }
 
-    /// Returns a reference to the contained `Value`.
-    pub fn body(&self) -> &Value {
+    /// Returns a reference to the contained `Body`.
+    pub fn body(&self) -> &Body {
         &self.body
     }
 }
