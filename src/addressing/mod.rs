@@ -1,11 +1,11 @@
+pub mod body;
 pub mod deposit;
 pub mod excavate;
 
-use indexmap::IndexMap;
 use serde::{Deserialize, Serialize};
 use time::Timestamp;
 
-use crate::keys::source::SourceKey;
+use crate::{addressing::body::Body, keys::source::SourceKey};
 
 /// A single, discrete action.
 #[derive(Serialize, Deserialize)]
@@ -16,16 +16,7 @@ pub struct Action {
     body: Body
 }
 
-/// A set of types for polymorphism.
-#[derive(Serialize, Deserialize)]
-pub enum Body {
-    Bool(bool),
-    Handle(String),
-    Integer(i64),
-    List(Vec<Body>),
-    Map(IndexMap<String, Body>),
-    Text(String)
-}
+
 
 impl Action {
     /// Creates an `Action`.
