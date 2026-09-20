@@ -1,6 +1,6 @@
 pub mod status;
 
-use crate::account::profile::{experience::credentials::status::Status, location::Location};
+use crate::account::profile::{credentials::status::Status, location::Location};
 
 /// A person's credential.
 pub struct Credential(CredentialKind);

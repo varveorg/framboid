@@ -1,11 +1,12 @@
 pub mod authorization;
 pub mod compensation;
-pub mod experience;
+pub mod credentials;
+pub mod engagement;
 pub mod identity;
 pub mod location;
 pub mod period;
 
-use crate::account::profile::{authorization::Authorization, compensation::Compensation, experience::{credentials::Credential, engagement::Engagement}, identity::Identity};
+use crate::account::profile::{authorization::Authorization, compensation::Compensation, credentials::Credential, engagement::Engagement, identity::Identity};
 
 /// A set of information a person supplies about themselves.
 pub struct Profile {
