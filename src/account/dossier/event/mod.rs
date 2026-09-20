@@ -14,3 +14,20 @@ pub struct Event {
     pub(super) from: Timestamp,
     to: Timestamp
 }
+
+impl Event {
+    /// Returns a reference to the contained actions.
+    pub fn actions(&self) -> &IndexMap<Hash, Action> {
+        &self.actions
+    }
+
+    /// Returns a copy of the contained from `Timestamp`.
+    pub fn from(&self) -> Timestamp {
+        self.from
+    }
+
+    /// Returns a copy of the contained to `Timestamp`.
+    pub fn to(&self) -> Timestamp {
+        self.to
+    }
+}

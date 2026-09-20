@@ -15,3 +15,20 @@ pub struct Dossier {
     pub(super) from: Timestamp,
     to: Timestamp
 }
+
+impl Dossier {
+    /// Returns a reference to the contained events.
+    pub fn events(&self) -> &IndexMap<Hash, Event> {
+        &self.events
+    }
+
+    /// Returns a copy of the from `Timestamp`.
+    pub fn from(&self) -> Timestamp {
+        self.from
+    }
+
+    /// Returns a copy of the to `Timestamp`.
+    pub fn to(&self) -> Timestamp {
+        self.to
+    }
+}
