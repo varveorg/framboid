@@ -13,8 +13,8 @@ pub enum AddressKind {
         routing: String,
     },
     Iban(String),
-    Upi(String),
-    Pix(String)
+    Pix(String),
+    Upi(String)
 }
 
 impl Address {
@@ -24,11 +24,13 @@ impl Address {
         routing: String,
         kind: Account
     ) -> Self {
-        Self(AddressKind::Ach {
-            account,
-            routing,
-            kind
-        })
+        Self(
+            AddressKind::Ach {
+                account,
+                routing,
+                kind
+            }
+        )
     }
 
     /// Creates an `Address` with an IBAN `AddressKind`.
@@ -36,14 +38,14 @@ impl Address {
         Self(AddressKind::Iban(iban))
     }
 
-    /// Creates an `Address` with a UPI `AddressKind`.
-    pub fn upi(vpa: String) -> Self {
-        Self(AddressKind::Upi(vpa))
-    }
-
     /// Creates an `Address` with a Pix `AddressKind`.
     pub fn pix(key: String) -> Self {
         Self(AddressKind::Pix(key))
+    }
+
+    /// Creates an `Address` with a UPI `AddressKind`.
+    pub fn upi(vpa: String) -> Self {
+        Self(AddressKind::Upi(vpa))
     }
 
     /// Returns a reference to the contained `AddressKind`.
