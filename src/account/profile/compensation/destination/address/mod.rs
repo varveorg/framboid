@@ -9,8 +9,8 @@ pub struct Address(AddressKind);
 pub enum AddressKind {
     Ach {
         account: String,
+        kind: Account,
         routing: String,
-        kind: Account
     },
     Iban(String),
     Upi(String),
